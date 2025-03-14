@@ -79,7 +79,7 @@ This project allows users to:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/library-management-system.git
+git clone https://github.com/1wahab/Library_Management_System_Using_Django_Rest_Framework.git
 cd library-management-system
 ```
 
