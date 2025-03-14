@@ -1,30 +1,31 @@
 from django.urls import path
 from .views import *
 
-# Group URLs by functionality and user roles
 urlpatterns = [
-    path('auth/register/', register_user),
-    path('auth/login/', login_user),
+    # Authentication URLs
+    path('auth/register/', RegisterAPIView.as_view(), name='register'),
+    path('auth/login/', LoginAPIView.as_view(), name='login'),
     
-    path('search-filter/', book_search,),
-
-    path('authors/create/', author_create), 
-    path('authors/', author_list),                                          
-    path('authors/<id>/', get_author),                 
-    path('authors/<id>/update/', update_author),    
-    path('authors/<id>/delete/', delete_author),       
+    # Author URLs
+    path('authors/create/', AuthorCreateAPIView.as_view(), name='author-create'),
+    path('authors/', AuthorListAPIView.as_view(), name='author-list'),
+    path('authors/<int:id>/', AuthorDetailAPIView.as_view(), name='author-detail'),
+    path('authors/<int:id>/update/', AuthorUpdateAPIView.as_view(), name='author-update'),
+    path('authors/<int:id>/delete/', AuthorDeleteAPIView.as_view(), name='author-delete'),
     
-    path('books/create/', book_create),
-    path('books/borrow/', borrow_book),          
-    path('books/return/', return_book),  
-    path('books/', book_list),
-    path('books/<id>/', get_book),       
-    path('books/<id>/update/', update_book),
-    path('books/<id>/delete/', delete_book),                               
-
-    path('library/statistics/', library_statistics),
+    # Book URLs
+    path('books/create/', BookCreateAPIView.as_view(), name='book-create'),
+    path('books/', BookListAPIView.as_view(), name='book-list'),
+    path('books/<int:id>/', BookDetailAPIView.as_view(), name='book-detail'),
+    path('books/<int:id>/update/', BookUpdateAPIView.as_view(), name='book-update'),
+    path('books/<int:id>/delete/', BookDeleteAPIView.as_view(), name='book-delete'),
     
-    path('borrowers/', borrower_list),     
-
+    # Borrowing URLs
+    path('books/borrow/', BorrowBookAPIView.as_view(), name='borrow-book'),
+    path('books/return/', ReturnBookAPIView.as_view(), name='borrower-return'),
     
+    # Search and Statistics URLs
+    path('search-filter/', BookSearchAPIView.as_view(), name='book-search'),
+    path('library/statistics/', LibraryStatisticsAPIView.as_view(), name='library-statistics'),
+    path('borrowers/', BorrowerListAPIView.as_view(), name='borrower-list'),
 ]
