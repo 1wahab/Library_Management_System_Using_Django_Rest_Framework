@@ -143,7 +143,7 @@ The API will be available at **http://127.0.0.1:8000/api/**.
 - **Python & Django**
 - **Django REST Framework**
 - **JWT for Authentication**
-- **PostgreSQL/MySQL/SQLite** (configurable)
+- **SQLite** (configurable)
 - Other libraries as specified in the `requirements.txt`
 
 ---
