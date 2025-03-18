@@ -178,5 +178,4 @@ This project is licensed under the **MIT License**.
 ## Contact
 
 For questions or support, please contact:
-- **Email:** wahabkazim
 - **GitHub:** [Wahab Kazim](https://github.com/1wahab)
